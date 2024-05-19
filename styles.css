@@ -1,10 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+/* Animacion */
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    80%{
+        transform: translateX(10px);  
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    80%{
+        transform: translateX(-10px);  
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 body{
     margin: 0;
     background-image: url(assets/images/unseen-studio-WvuTnXz1hSc-unsplash.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: "Rubik", sans-serif;
+    height: 1080px;
 }
 
 header{
@@ -62,15 +109,23 @@ header{
 }
 
 main{
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
     width: auto;
-    margin-top: 500px;
+    margin-top: 800px;
 }
 
-.imagen-main{
-    width: 125%;
+.imagen-main{ 
+    width: 100%;
     height: 500px;
     background-image: url(assets/images/lauren-mancke-aOC7TSLb1o8-unsplash.jpg);
+    background-size: cover;
+}
+
+.imagen-main-2{ 
+    width: 100%;
+    height: 500px;
+    background-image: url(assets/images/kevin-bhagat-zNRITe8NPqY-unsplash.jpg);
     background-size: cover;
 }
 
@@ -96,3 +151,86 @@ main{
     transition: all .5s;
     background-color: #128C7E;
 }
+
+.titulo-inicio{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.titulo-primario{
+    color: white;
+    text-shadow: 0 0 20px black;
+}
+
+.titulo-primario-main{
+    display: block;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 30px;
+    
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.titulo-primario-sub{
+    display: block;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 30px;
+    
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.btn, .btn:link, .btn:visited {
+    text-decoration: none;
+    padding: 10px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    font-size: 16px;
+    border: none;
+    cursor: pointer; }
+  
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  
+  .btn:active, .btn:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  
+  .btn-white {
+    background-color: #fff;
+    color: #494444; }
+    .btn-white::after {
+      background-color: #fff; }
+  
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  
+  .btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; }
+
+
+
